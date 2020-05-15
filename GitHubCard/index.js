@@ -3,6 +3,22 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+const entryPoint = document.querySelector('.cards')
+
+axios.get("https://api.github.com/users/jeremy-faraone")
+// console.log(me)
+.then(response => {
+  console.log('API RESPONSE', response)
+})
+//   response.data.forEach(item => {
+//     const jers = 
+//     entryPoint.appendChild()
+//   })
+// })
+
+
+
+
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -49,6 +65,47 @@ const followersArray = [];
       </div>
     </div>
 */
+function newCard(){
+  const card = document.createElement('div')
+  const img = document.createElement('img')
+  const cardInfo = document.createElement('div')
+  const name = document.createElement('h3')
+  const userName = document.createElement('p')
+  const location = document.createElement('p')
+  const profile = document.createElement('p')
+  const userPage = document.createElement('a')
+  const followers = document.createElement('p')
+  const following = document.createElement('p')
+  const bio = document.createElement('p')
+
+  card.appendChild(img)
+  card.appendChild(cardInfo)
+  cardInfo.appendChild(name)
+  cardInfo.appendChild(userName)
+  cardInfo.appendChild(location)
+  cardInfo.appendChild(profile)
+  profile.appendChild(userPage)
+  cardInfo.appendChild(followers)
+  cardInfo.appendChild(following)
+  cardInfo.appendChild(bio)
+
+  card.classList.add('card')
+  cardInfo.classList.add('card-info')
+  name.classList.add('name')
+  userName.classList.add('username')
+
+  img.src = object.avatar_url
+  name.textContent = object.name
+  userName.textContent = object.login
+  location.textContent = `Location:${object.location}`
+  profile.textContent = "Profile:"
+  userPage.textContent = `https://github.com/${object.html.url}`
+  followers.textContent = `Followers:${object.followers}`
+  following.textContent = `Following:${object.following}`
+  bio.textContent = `Bio:${object.bio}`
+
+  
+}
 
 /*
   List of LS Instructors Github username's:
